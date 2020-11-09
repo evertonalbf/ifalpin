@@ -1,0 +1,335 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--BOOTSTRAP 4-->   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!--GOOGLE FONTS -->  <link href="https://fonts.googleapis.com/css?family=Thasadith|Merriweather" rel="stylesheet">
+  <!--GOOGLE FONTS -->  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="shortcut icon" type="image/x-icon" href="logo.gif" />
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <title>Engenharia Civil - IFAL PÍn</title>
+    <style>
+  body{
+    background: #f0f0f5;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .navbar{
+    width:100% !important;
+  }
+  .col-periodo{
+    overflow:hidden;
+    padding-left:0px;
+  }
+  .col-periodo .head-periodo{
+    font-size:11px;  
+    height:35px !important;
+    font-weight:bold;
+    text-align: center;
+    background:rgba(255,255,255,1);
+    margin-bottom:10px;
+    margin-left: 5px;
+    padding-top:7px;
+  }
+  div.disciplina{
+     font-size:11px;  
+     margin-bottom:10px;
+     margin-left: 5px;
+     background:rgba(255,255,255,1);
+     min-height:60px;
+     height:auto;
+     cursor:pointer;
+     text-align:center;
+     padding-top:15px;
+     font-weight: normal;
+  }
+  .col-periodo .disciplina:hover{
+    background:rgb(70,130,180);
+    color:#ffffff;
+    transition:.3s
+  }
+  .pre-requisito{
+    background:rgba(140,140,140,0.9) !important;
+    color:#ffffff;
+    transition:.3s
+  }
+  
+  ///// ESTILOS DIFERENTES PARA DIFERENTES LARGURAS DE DISPOSITIVOS ////
+  
+  @media (min-width: 576px) {  
+    .col-periodo .disciplina{
+		padding:5px;
+		font-size:8px;
+        background: black;
+    } 
+    #EC067 {
+ 	word-break: break-all;
+ 
+   }
+   	.credenciais {
+
+		float:right;
+	}
+  }
+   
+  @media (min-width: 768px) {  
+    .col-periodo .disciplina{
+      font-size:8px;
+      padding: 5px;
+    }
+   #EC067 {
+	word-break: break-all;
+   	font-size: 8px;
+   }
+   	.credenciais {
+
+		float:right;
+	}
+  }
+  
+  /// DISPOSITIVOS MAIORES /// 
+  @media (min-width: 992px) { 
+  	.col-periodo .disciplina{
+      font-size:10.5px;
+      padding: 5px;
+    }
+   #EC067 {
+	word-break: break-all;
+   	font-size: 10.5px;
+   }
+   	.credenciais {
+
+		float:right;
+	}
+  }
+   
+  @media (min-width: 1200px) {  
+     .col-periodo .disciplina{
+			font-size:9.5px;
+			padding: 5px;
+    }
+   #EC067 {
+        word-break: keep-all;
+		   	font-size: 9.5px;
+   }
+
+      	.credenciais {
+
+		float:right;
+	}
+  }
+    
+
+	.segundanav {
+        background:rgb(70,130,180);
+        /*background: #25488e;*/
+		/*background: #85a3e0;*/
+		margin-bottom: 10px;
+		color: white;
+		float:left;
+	}         
+
+	.primeiranav {
+		background: rgb(169,169,169);
+		color: white;
+		float:middle;
+		margin:0px;
+		padding:0px;
+	}   
+
+	.eng {
+		
+
+	}
+	.nome {
+		float:left;
+
+	}
+
+	#homebutton {
+
+		color: white;
+	}
+
+	#homebutton:hover {
+
+		color: darkgrey;
+	}
+
+</style>
+    
+    <script>
+    $(document).ready(function(){
+      $( ".disciplina" ).hover(
+        function() {
+          var idDisciplina = $(this).attr("id");
+          var idPre        = $(this).attr("data-pre");
+          var idCo         = $(this).attr("data-co");
+          if( idPre ){
+            var exp = idPre.split(",");
+            var arr = jQuery.makeArray(exp);
+            var total = arr.length;  
+            for(var i = 0; i < total; i++){
+              var pre = arr[i];
+              $("#"+pre).addClass("pre-requisito");
+            }     
+          } 
+          if( idCo ){
+            var exp2 = idCo.split(",");
+            var arr2 = jQuery.makeArray(exp2);
+            var total2 = arr2.length;  
+            for(var j = 0; j < total2; j++){
+              var co = arr2[j];
+              $("#"+co).addClass("pre-requisito");
+            }     
+          } 
+        }, function() {
+           $(".disciplina").removeClass("pre-requisito");
+        }
+      );
+    });
+    </script>
+</head>
+        
+   
+<body>
+
+  <!-- CONTAINER BARRA DE NAVEGAÇÃO -->  
+
+
+  <div class="container-fluid">
+    <div class="row" style="float: middle;">
+      <nav class="navbar navbar-light segundanav">
+      <a class="navbar-brand" href="index.html"><h2><i id="homebutton" class="fas fa-home"></i></h2></a><h2>Engenharia Civil</h2>
+      <div class="navbar-text"></div>
+      </nav>
+
+
+   </div>
+ </div> 
+ <!-- FIM DO CONTAINER DA BARRA DE NAVEGAÇÃO -->    
+ 
+<!-- CONTAINER PERIODOS -->     
+<div class="container-fluid" style="margin-bottom:40px; margin-top:10px;">
+  <div class="row">
+    <div class="col col-periodo">
+                <div class="head-periodo">1º Período</div>
+                <div class="disciplina align-middle" id="EC001" data-co="" data-pre="">INTRODUÇÃO AO CÁLCULO DIFERENCIAL E INTEGRAL</div>
+                <div class="disciplina align-middle" id="EC002" data-co="" data-pre="">INTRODUÇÃO A COMPUTAÇÃO</div>
+                <div class="disciplina align-middle" id="EC003" data-co="" data-pre="">QUÍMICA GERAL</div>
+                <div class="disciplina align-middle" id="EC004" data-co="" data-pre="">QUÍMICA GERAL EXPERIMENTAL</div>
+                <div class="disciplina align-middle" id="EC005" data-co="" data-pre="">GEOMETRIA ANALÍTICA</div>
+                <div class="disciplina align-middle" id="EC006" data-co="" data-pre="">INTRODUÇÃO A ENGENHARIA CIVIL</div>
+                <div class="disciplina align-middle" id="EC007" data-co="" data-pre="">GEOMETRIA DESCRITIVA</div>
+                <div class="disciplina align-middle" id="EC008" data-co="" data-pre="">COMUNICAÇÃO E EXPRESSÃO</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">2º Período</div>
+                <div class="disciplina align-middle" id="EC009" data-co="" data-pre="EC001">CÁLCULO DIFERENCIAL E INTEGRAL I</div>
+                <div class="disciplina align-middle" id="EC010" data-co="" data-pre="EC001,EC005">FÍSICA GERAL I</div>
+                <div class="disciplina align-middle" id="EC011" data-co="" data-pre="EC001,EC005">FÍSICA EXPERIMENTAL I</div>
+                <div class="disciplina align-middle" id="EC012" data-co="" data-pre="EC005">ÁLGEBRA LINEAR I</div>
+                <div class="disciplina align-middle" id="EC013" data-co="" data-pre="EC005,EC007">TOPOGRAFIA</div>
+                <div class="disciplina align-middle" id="EC014" data-co="" data-pre="EC007">DESENHO TÉCNICO</div>
+                <div class="disciplina align-middle" id="EC015" data-co="" data-pre="">METODOLOGIA CIENTÍFICA</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">3º Período</div>
+                <div class="disciplina align-middle" id="EC016" data-co="" data-pre="EC005,EC009">CÁLCULO DIFERENCIAL E INTEGRAL II</div>
+                <div class="disciplina align-middle" id="EC017" data-co="" data-pre="EC010">FÍSICA GERAL II</div>
+                <div class="disciplina align-middle" id="EC018" data-co="" data-pre="EC009">ESTATÍSTICA E PROBABILIDADE</div>
+                <div class="disciplina align-middle" id="EC019" data-co="" data-pre="EC006">MATERIAIS DE CONSTRUÇÃO CIVIL I</div>
+                <div class="disciplina align-middle" id="EC020" data-co="" data-pre="EC002,EC009">CÁLCULO NUMÉRICO</div>
+                <div class="disciplina align-middle" id="EC021" data-co="" data-pre="EC014">DESENHO ASSISTIDO POR COMPUTADOR</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">4º Período</div>
+                <div class="disciplina align-middle" id="EC022" data-co="" data-pre="EC016">CÁLCULO DIFERENCIAL E INTEGRAL III</div>
+                <div class="disciplina align-middle" id="EC023" data-co="" data-pre="EC017">FÍSICA GERAL III</div>
+                <div class="disciplina align-middle" id="EC024" data-co="" data-pre="EC016,EC017">MECÂNICA DOS SÓLIDOS I</div>
+                <div class="disciplina align-middle" id="EC025" data-co="" data-pre="EC019">MATERIAIS DE CONSTRUÇÃO CIVIL II</div>
+                <div class="disciplina align-middle" id="EC026" data-co="" data-pre="EC013">GEOLOGIA APLICADA</div>
+                <div class="disciplina align-middle" id="EC027" data-co="" data-pre="EC021">DESENHO ARQUITETÔNICO</div>
+                <div class="disciplina align-middle" id="EC028" data-co="" data-pre="EC018">ENGENHARIA ECONÔMICA</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">5º Período</div>
+                <div class="disciplina align-middle" id="EC029" data-co="" data-pre="EC016,EC017">FENÔMENOS DE TRANSPORTE</div>
+                <div class="disciplina align-middle" id="EC030" data-co="" data-pre="EC026">MECÂNICA DOS SOLOS I</div>
+                <div class="disciplina align-middle" id="EC031" data-co="" data-pre="EC024">MECÂNICA DOS SÓLIDOS II</div>
+                <div class="disciplina align-middle" id="EC032" data-co="" data-pre="EC025">TECNOLOGIA DE CONSTRUÇÃO CIVIL I</div>
+                <div class="disciplina align-middle" id="EC033" data-co="" data-pre="EC026">LABORATÓRIO DE MECÂNICA DOS SOLOS I</div>
+                <div class="disciplina align-middle" id="EC034" data-co="" data-pre="">SOCIOLOGIA DO TRABALHO</div>
+                <div class="disciplina align-middle" id="EC035" data-co="" data-pre="EC024">TEORIA DAS ESTRUTURAS I</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">6º Período</div>
+                <div class="disciplina align-middle" id="EC036" data-co="" data-pre="EC029">HIDRÁULICA</div>
+                <div class="disciplina align-middle" id="EC037" data-co="" data-pre="EC030,EC013">ESTRADAS</div>
+                <div class="disciplina align-middle" id="EC038" data-co="" data-pre="EC031">MECÂNICA DOS SÓLIDOS III</div>
+                <div class="disciplina align-middle" id="EC039" data-co="" data-pre="EC032">TECNOLOGIA DE CONSTRUÇÃO CIVIL II</div>
+                <div class="disciplina align-middle" id="EC040" data-co="" data-pre="EC030">MECÂNICA DOS SOLOS II</div>
+                <div class="disciplina align-middle" id="EC041" data-co="" data-pre="EC035">TEORIA DAS ESTRUTURAS II</div>
+                <div class="disciplina align-middle" id="EC042" data-co="" data-pre="EC030">LABORATÓRIO DE MECÂNICA DOS SOLOS II</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">7º Período</div>
+                <div class="disciplina align-middle" id="EC043" data-co="" data-pre="EC026">HIDROLOGIA</div>
+                <div class="disciplina align-middle" id="EC044" data-co="" data-pre="EC040">FUNDAÇÕES I</div>
+                <div class="disciplina align-middle" id="EC045" data-co="" data-pre="EC039">TECNOLOGIA DE CONSTRUÇÃO CIVIL III</div>
+                <div class="disciplina align-middle" id="EC046" data-co="" data-pre="EC038,EC041">ESTRUTURAS DE CONCRETO ARMADO I</div>
+                <div class="disciplina align-middle" id="EC047" data-co="" data-pre="EC023">ELETRICIDADE APLICADA</div>
+                <div class="disciplina align-middle" id="EC048" data-co="" data-pre="EC037,EC040">PAVIMENTAÇÃO</div>
+                <div class="disciplina align-middle" id="EC049" data-co="" data-pre="EC036">HIDRÁULICA EXPERIMENTAL</div>
+                <div class="disciplina align-middle" id="EC050" data-co="" data-pre="EC028">ADMINISTRAÇÃO APLICADA À CONSTRUÇÃO CIVIL</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">8º Período</div>
+                <div class="disciplina align-middle" id="EC051" data-co="" data-pre="EC044">FUNDAÇÕES II</div>
+                <div class="disciplina align-middle" id="EC052" data-co="" data-pre="EC036">INSTALAÇÕES HIDRO-SANITÁRIAS</div>
+                <div class="disciplina align-middle" id="EC053" data-co="" data-pre="EC046">ESTRUTURAS DE CONCRETO ARMADO II</div>
+                <div class="disciplina align-middle" id="EC054" data-co="" data-pre="EC047">INSTALAÇÕES ELÉTRICAS PREDIAIS</div>
+                <div class="disciplina align-middle" id="EC055" data-co="" data-pre="EC013,EC043,EC048">SISTEMA DE DRENAGEM URBANA</div>
+                <div class="disciplina align-middle" id="EC056" data-co="" data-pre="EC036">SISTEMAS DE ABASTECIMENTO DE ÁGUA</div>
+                <div class="disciplina align-middle" id="EC057" data-co="" data-pre="EC039">TRANSPORTES I</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">9º Período</div>
+                <div class="disciplina align-middle" id="EC060" data-co="" data-pre="EC057">TRANSPORTES II</div>
+                <div class="disciplina align-middle" id="EC061" data-co="" data-pre="EC055,EC056">SISTEMA DE ESGOTAMENTO SANITÁRIO</div>
+                <div class="disciplina align-middle" id="EC062" data-co="" data-pre="EC032">SEGURANÇA DO TRABALHO</div>
+                <div class="disciplina align-middle" id="EC063" data-co="" data-pre="EC025,EC041">ESTRUTURAS METÁLICAS</div>
+                <div class="disciplina align-middle" id="EC064" data-co="" data-pre="">DIREITO E LEGISLAÇÃO</div>
+                <div class="disciplina align-middle" id="EC065" data-co="" data-pre="EC041">ESTRUTURAS DE MADEIRA</div>
+                <div class="disciplina align-middle" id="EC066" data-co="" data-pre="EC053">ESTRUTURAS DE CONCRETO PROTENDIDO</div>
+                <div class="disciplina align-middle" id="EC067" data-co="" data-pre="">EMPREENDEDORISMO E INOVAÇÃO</div>
+        </div>
+      <div class="col col-periodo">
+                <div class="head-periodo">10º Período</div>
+                <div class="disciplina align-middle" id="EC068" data-co="" data-pre="EC043,EC061">ENGENHARIA AMBIENTAL</div>
+                <div class="disciplina align-middle" id="EC069" data-co="" data-pre="">ÉTICA E EXERCÍCIO PROFISSIONAL</div>
+                <div class="disciplina align-middle" id="EC086" data-co="" data-pre="">TRABALHO DE CONCLUSÃO DE CURSO</div>
+        </div>
+
+        
+  </div>
+</div> 
+<!-- FIM DO CONTAINER PERIODOS --> 
+
+
+  <div class="container-fluid fixed-bottom primeiranav">
+  	<nav class="navbar navbar-light bg-default" style="float:middle; height:40px;">
+	<a class="navbar-brand"><span style="font-size:15px;">&copy;2019 Everton Barbosa</span></a>
+	<span>
+	<a class="navbar-brand"><span style="font-size:15px;"><i class="far fa-envelope-open"></i>&nbsp;evertonalbf@gmail.com</span></a>
+	<a class="navbar-brand"><span style="font-size:15px;"><i class="fas fa-phone"></i>&nbsp;+55(82)99653-0212</span></a>
+</span>
+      </nav>
+  </div> 
+    
+</body>
+</html>
