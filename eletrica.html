@@ -172,9 +172,11 @@
           var idDisciplina = $(this).attr("id");
           var idPre        = $(this).attr("data-pre");
           var idCo         = $(this).attr("data-co");
+          var idDep        = $(this).attr("data-dep");
           if( idPre ){
             var exp = idPre.split(",");
             var arr = jQuery.makeArray(exp);
+            console.log(arr); //
             var total = arr.length;  
             for(var i = 0; i < total; i++){
               var pre = arr[i];
@@ -189,7 +191,16 @@
               var co = arr2[j];
               $("#"+co).addClass("pre-requisito");
             }     
-          } 
+          }
+          if( idDep ){
+            var exp3 = idDep.split(",");
+            var arr3 = jQuery.makeArray(exp3);
+            var total3 = arr3.length;  
+            for(var k = 0; k < total3; k++){
+              var dep = arr3[k];
+              $("#"+dep).addClass("pre-requisito");
+            }     
+          }
         }, function() {
            $(".disciplina").removeClass("pre-requisito");
         }
@@ -221,117 +232,117 @@
   <div class="row">
     <div class="col col-periodo">
             <div class="head-periodo">1º Período</div>
-                <div class="disciplina align-middle" id="EE001" data-co="" data-pre="">INTRODUÇÃO AO CÁLCULO DIFERENCIAL E INTEGRAL</div>
-                <div class="disciplina align-middle" id="EE002" data-co="" data-pre="">INTRODUÇÃO À PROGRAMAÇÃO</div>
-                <div class="disciplina align-middle" id="EE003" data-co="" data-pre="">QUÍMICA GERAL</div>
-                <div class="disciplina align-middle" id="EE004" data-co="" data-pre="">QUÍMICA GERAL EXPERIMENTAL</div>
-                <div class="disciplina align-middle" id="EE005" data-co="" data-pre="">GEOMETRIA ANALÍTICA</div>
-                <div class="disciplina align-middle" id="EE006" data-co="" data-pre="">INTRODUÇÃO À ENGENHARIA ELÉTRICA</div>
-                <div class="disciplina align-middle" id="EE007" data-co="" data-pre="">DESENHO TÉCNICO PARA ENGENHARIA ELÉTRICA</div>
-                <div class="disciplina align-middle" id="EE008" data-co="" data-pre="">INGLÊS INSTRUMENTAL</div>
+                <div class="disciplina align-middle" id="EE001" data-co="" data-pre="" data-dep="EE009,EE010">INTRODUÇÃO AO CÁLCULO DIFERENCIAL E INTEGRAL</div>
+                <div class="disciplina align-middle" id="EE002" data-co="" data-pre="" data-dep="EE015,EE020">INTRODUÇÃO À PROGRAMAÇÃO</div>
+                <div class="disciplina align-middle" id="EE003" data-co="" data-pre="" data-dep="EE029">QUÍMICA GERAL</div>
+                <div class="disciplina align-middle" id="EE004" data-co="" data-pre="" data-dep="">QUÍMICA GERAL EXPERIMENTAL</div>
+                <div class="disciplina align-middle" id="EE005" data-co="" data-pre="" data-dep="EE010,EE012">GEOMETRIA ANALÍTICA</div>
+                <div class="disciplina align-middle" id="EE006" data-co="" data-pre="" data-dep="">INTRODUÇÃO À ENGENHARIA ELÉTRICA</div>
+                <div class="disciplina align-middle" id="EE007" data-co="" data-pre="" data-dep="EE043">DESENHO TÉCNICO PARA ENGENHARIA ELÉTRICA</div>
+                <div class="disciplina align-middle" id="EE008" data-co="" data-pre="" data-dep="">INGLÊS INSTRUMENTAL</div>
 
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">2º Período</div>
-                <div class="disciplina align-middle" id="EE009" data-co="" data-pre="EE001">CÁLCULO DIFERENCIAL E INTEGRAL I</div>
-                <div class="disciplina align-middle" id="EE010" data-co="" data-pre="EE001,EE005">FÍSICA GERAL I</div>
-                <div class="disciplina align-middle" id="EE011" data-co="EE010" data-pre="">FÍSICA EXPERIMENTAL I</div>
-                <div class="disciplina align-middle" id="EE012" data-co="" data-pre="EE005">ÁLGEBRA LINEAR</div>
-                <div class="disciplina align-middle" id="EE013" data-co="" data-pre="">CIRCUITOS LÓGICOS</div>
-                <div class="disciplina align-middle" id="EE014" data-co="EE013" data-pre="">LABORATÓRIO DE CIRCUITOS LÓGICOS</div>
-                <div class="disciplina align-middle" id="EE015" data-co="" data-pre="EE002">TÉCNICAS DE PROGRAMAÇÃO</div>
-                <div class="disciplina align-middle" id="EE016" data-co="" data-pre="">DIREITO E LEGISLAÇÃO</div>
+                <div class="disciplina align-middle" id="EE009" data-co="" data-pre="EE001"  data-dep="EE017,EE019,EE020,EE021">CÁLCULO DIFERENCIAL E INTEGRAL I</div>
+                <div class="disciplina align-middle" id="EE010" data-co="" data-pre="EE001,EE005" data-dep="EE018">FÍSICA GERAL I</div>
+                <div class="disciplina align-middle" id="EE011" data-co="EE010" data-pre="" data-dep="">FÍSICA EXPERIMENTAL I</div>
+                <div class="disciplina align-middle" id="EE012" data-co="" data-pre="EE005" data-dep="">ÁLGEBRA LINEAR</div>
+                <div class="disciplina align-middle" id="EE013" data-co="" data-pre="" data-dep="EE042">CIRCUITOS LÓGICOS</div>
+                <div class="disciplina align-middle" id="EE014" data-co="EE013" data-pre="" data-dep="">LABORATÓRIO DE CIRCUITOS LÓGICOS</div>
+                <div class="disciplina align-middle" id="EE015" data-co="" data-pre="EE002" data-dep="">TÉCNICAS DE PROGRAMAÇÃO</div>
+                <div class="disciplina align-middle" id="EE016" data-co="" data-pre="" data-dep="">DIREITO E LEGISLAÇÃO</div>
 
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">3º Período</div>
-                <div class="disciplina align-middle" id="EE017" data-co="" data-pre="EE009">CÁLCULO DIFERENCIAL E INTEGRAL II</div>
-                <div class="disciplina align-middle" id="EE018" data-co="" data-pre="EE010">FÍSICA GERAL II</div>
-                <div class="disciplina align-middle" id="EE019" data-co="" data-pre="EE009">ESTATÍSTICA E PROBABILIDADE</div>
-                <div class="disciplina align-middle" id="EE020" data-co="" data-pre="EE02,EE009">CÁLCULO NUMÉRICO</div>
-                <div class="disciplina align-middle" id="EE021" data-co="" data-pre="EE009">EQUAÇÕES DIFERENCIAIS ORDINÁRIAS</div>
-                <div class="disciplina align-middle" id="EE022" data-co="" data-pre="">COMUNICAÇÃO E EXPRESSÃO</div>
-                <div class="disciplina align-middle" id="EE023" data-co="" data-pre="">SOCIOLOGIA DO TRABALHO</div>
+                <div class="disciplina align-middle" id="EE017" data-co="" data-pre="EE009" data-dep="EE024,EE025">CÁLCULO DIFERENCIAL E INTEGRAL II</div>
+                <div class="disciplina align-middle" id="EE018" data-co="" data-pre="EE010" data-dep="EE025">FÍSICA GERAL II</div>
+                <div class="disciplina align-middle" id="EE019" data-co="" data-pre="EE009" data-dep="">ESTATÍSTICA E PROBABILIDADE</div>
+                <div class="disciplina align-middle" id="EE020" data-co="" data-pre="EE002,EE009" data-dep="EE031,EE040">CÁLCULO NUMÉRICO</div>
+                <div class="disciplina align-middle" id="EE021" data-co="" data-pre="EE009" data-dep="EE026,EE027">EQUAÇÕES DIFERENCIAIS ORDINÁRIAS</div>
+                <div class="disciplina align-middle" id="EE022" data-co="" data-pre="" data-dep="">COMUNICAÇÃO E EXPRESSÃO</div>
+                <div class="disciplina align-middle" id="EE023" data-co="" data-pre="" data-dep="">SOCIOLOGIA DO TRABALHO</div>
            
 
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">4º Período</div>
-                <div class="disciplina align-middle" id="EE024" data-co="" data-pre="EE017">CÁLCULO DIFERENCIAL E INTEGRAL III</div>
-                <div class="disciplina align-middle" id="EE025" data-co="" data-pre="EE017,EE018">FENÔMENOS DE TRANSPORTE</div>
-                <div class="disciplina align-middle" id="EE026" data-co="" data-pre="EE021">ANÁLISE DE SINAIS E SISTEMAS</div>
-                <div class="disciplina align-middle" id="EE027" data-co="" data-pre="EE021">CIRCUITOS ELÉTRICOS I</div>
-                <div class="disciplina align-middle" id="EE028" data-co="EE027" data-pre="">LABORATÓRIO DE CIRCUITOS ELÉTRICOS I</div>
-                <div class="disciplina align-middle" id="EE029" data-co="" data-pre="EE003">MATERIAIS ELÉTRICOS</div>
-                <div class="disciplina align-middle" id="EE030" data-co="" data-pre="">METODOLOGIA CIENTÍFICA</div>
+                <div class="disciplina align-middle" id="EE024" data-co="" data-pre="EE017" data-dep="EE031">CÁLCULO DIFERENCIAL E INTEGRAL III</div>
+                <div class="disciplina align-middle" id="EE025" data-co="" data-pre="EE017,EE018" data-dep="">FENÔMENOS DE TRANSPORTE</div>
+                <div class="disciplina align-middle" id="EE026" data-co="" data-pre="EE021" data-dep="EE033,EE049">ANÁLISE DE SINAIS E SISTEMAS</div>
+                <div class="disciplina align-middle" id="EE027" data-co="" data-pre="EE021" data-dep="EE035,EE037">CIRCUITOS ELÉTRICOS I</div>
+                <div class="disciplina align-middle" id="EE028" data-co="EE027" data-pre="" data-dep="EE036">LABORATÓRIO DE CIRCUITOS ELÉTRICOS I</div>
+                <div class="disciplina align-middle" id="EE029" data-co="" data-pre="EE003" data-dep="">MATERIAIS ELÉTRICOS</div>
+                <div class="disciplina align-middle" id="EE030" data-co="" data-pre="" data-dep="">METODOLOGIA CIENTÍFICA</div>
           
            
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">5º Período</div>
-                  <div class="disciplina align-middle" id="EE031" data-co="" data-pre="EE024,EE020">ELETROMAGNETISMO I</div>
-                  <div class="disciplina align-middle" id="EE032" data-co="EE031" data-pre="">LABORATÓRIO DE ELETROMAGNETISMO I</div>
-                  <div class="disciplina align-middle" id="EE033" data-co="" data-pre="EE026">PROCESSAMENTO DIGITAL DE SINAIS</div>
-                  <div class="disciplina align-middle" id="EE034" data-co="EE033" data-pre="">LABORATÓRIO DE PROCESSAMENTO DIGITAL DE SINAIS</div>
-                  <div class="disciplina align-middle" id="EE035" data-co="" data-pre="EE027">CIRCUITOS ELÉTRICOS II</div>
-                  <div class="disciplina align-middle" id="EE036" data-co="EE035" data-pre="EE028">LABORATÓRIO DE CIRCUITOS ELÉTRICOS II</div>
-                  <div class="disciplina align-middle" id="EE037" data-co="" data-pre="EE027">ELETRÔNICA I</div>
-                  <div class="disciplina align-middle" id="EE038" data-co="EE037" data-pre="">LABORATÓRIO DE ELETRÔNICA I</div>    
+                  <div class="disciplina align-middle" id="EE031" data-co="" data-pre="EE024,EE020" data-dep="EE039">ELETROMAGNETISMO I</div>
+                  <div class="disciplina align-middle" id="EE032" data-co="EE031" data-pre="" data-dep="">LABORATÓRIO DE ELETROMAGNETISMO I</div>
+                  <div class="disciplina align-middle" id="EE033" data-co="" data-pre="EE026" data-dep="">PROCESSAMENTO DIGITAL DE SINAIS</div>
+                  <div class="disciplina align-middle" id="EE034" data-co="EE033" data-pre="" data-dep="">LABORATÓRIO DE PROCESSAMENTO DIGITAL DE SINAIS</div>
+                  <div class="disciplina align-middle" id="EE035" data-co="" data-pre="EE027" data-dep="EE040,EE044,EE047">CIRCUITOS ELÉTRICOS II</div>
+                  <div class="disciplina align-middle" id="EE036" data-co="EE035" data-pre="EE028" data-dep="">LABORATÓRIO DE CIRCUITOS ELÉTRICOS II</div>
+                  <div class="disciplina align-middle" id="EE037" data-co="" data-pre="EE027" data-dep="EE044">ELETRÔNICA I</div>
+                  <div class="disciplina align-middle" id="EE038" data-co="EE037" data-pre="" data-dep="EE045">LABORATÓRIO DE ELETRÔNICA I</div>    
 
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">6º Período</div>
-          <div class="disciplina align-middle" id="EE039" data-co="" data-pre="EE031">ELETROMAGNETISMO II</div>
-          <div class="disciplina align-middle" id="EE040" data-co="" data-pre="EE035,EE020">SISTEMAS ELÉTRICOS</div>
-          <div class="disciplina align-middle" id="EE041" data-co="EE040" data-pre="">LABORATÓRIO DE SISTEMAS ELÉTRICOS</div>
-          <div class="disciplina align-middle" id="EE042" data-co="" data-pre="EE013">CONTROLADORES LÓGICOS PROGRAMÁVEIS</div>
-          <div class="disciplina align-middle" id="EE043" data-co="" data-pre="EE007">INSTALAÇÕES ELÉTRICAS PREDIAIS</div>
-          <div class="disciplina align-middle" id="EE044" data-co="" data-pre="EE037,EE035">ELETRÔNICA II</div>
-          <div class="disciplina align-middle" id="EE045" data-co="EE044" data-pre="EE038">LABORATÓRIO DE ELETRÔNICA II</div>
-          <div class="disciplina align-middle" id="EE046" data-co="" data-pre="">SEGURANÇA DO TRABALHO</div>
+          <div class="disciplina align-middle" id="EE039" data-co="" data-pre="EE031" data-dep="EE047">ELETROMAGNETISMO II</div>
+          <div class="disciplina align-middle" id="EE040" data-co="" data-pre="EE035,EE020" data-dep="EE048">SISTEMAS ELÉTRICOS</div>
+          <div class="disciplina align-middle" id="EE041" data-co="EE040" data-pre="" data-dep="">LABORATÓRIO DE SISTEMAS ELÉTRICOS</div>
+          <div class="disciplina align-middle" id="EE042" data-co="" data-pre="EE013" data-dep="EE053,EE056">CONTROLADORES LÓGICOS PROGRAMÁVEIS</div>
+          <div class="disciplina align-middle" id="EE043" data-co="" data-pre="EE007" data-dep="EE056">INSTALAÇÕES ELÉTRICAS PREDIAIS</div>
+          <div class="disciplina align-middle" id="EE044" data-co="" data-pre="EE037,EE035" data-dep="EE051">ELETRÔNICA II</div>
+          <div class="disciplina align-middle" id="EE045" data-co="EE044" data-pre="EE038" data-dep="">LABORATÓRIO DE ELETRÔNICA II</div>
+          <div class="disciplina align-middle" id="EE046" data-co="" data-pre="" data-dep="">SEGURANÇA DO TRABALHO</div>
            
 
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">7º Período</div>
-          <div class="disciplina align-middle" id="EE047" data-co="" data-pre="EE039,EE035">CONVERSÃO ELETROMECÂNICA</div>
-          <div class="disciplina align-middle" id="EE048" data-co="" data-pre="EE040">ANÁLISE DE SISTEMAS ELÉTRICOS</div>
-          <div class="disciplina align-middle" id="EE049" data-co="" data-pre="EE026">TEORIA DE CONTROLE</div>
-          <div class="disciplina align-middle" id="EE050" data-co="" data-pre="">INTRODUÇÃO A ENERGIAS RENOVÁVEIS</div>
-          <div class="disciplina align-middle" id="EE051" data-co="" data-pre="EE044">ELETRÔNICA DE POTÊNCIA</div>
-          <div class="disciplina align-middle" id="EE052" data-co="EE051" data-pre="">LABORATÓRIO DE ELETRÔNICA DE POTÊNCIA</div>
-          <div class="disciplina align-middle" id="EE053" data-co="" data-pre="EE042">AUTOMAÇÃO INDUSTRIAL</div>   
+          <div class="disciplina align-middle" id="EE047" data-co="" data-pre="EE039,EE035" data-dep="EE054">CONVERSÃO ELETROMECÂNICA</div>
+          <div class="disciplina align-middle" id="EE048" data-co="" data-pre="EE040" data-dep="EE061">ANÁLISE DE SISTEMAS ELÉTRICOS</div>
+          <div class="disciplina align-middle" id="EE049" data-co="" data-pre="EE026" data-dep="">TEORIA DE CONTROLE</div>
+          <div class="disciplina align-middle" id="EE050" data-co="" data-pre="" data-dep="EE062,EE063">INTRODUÇÃO A ENERGIAS RENOVÁVEIS</div>
+          <div class="disciplina align-middle" id="EE051" data-co="" data-pre="EE044" data-dep="EE061">ELETRÔNICA DE POTÊNCIA</div>
+          <div class="disciplina align-middle" id="EE052" data-co="EE051" data-pre="" data-dep="">LABORATÓRIO DE ELETRÔNICA DE POTÊNCIA</div>
+          <div class="disciplina align-middle" id="EE053" data-co="" data-pre="EE042" data-dep="">AUTOMAÇÃO INDUSTRIAL</div>   
 
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">8º Período</div>
-          <div class="disciplina align-middle" id="EE054" data-co="" data-pre="EE047">MÁQUINAS ELÉTRICAS</div>
-          <div class="disciplina align-middle" id="EE055" data-co="EE054" data-pre="">LABORATÓRIO DE MÁQUINAS ELÉTRICAS</div>
-          <div class="disciplina align-middle" id="EE056" data-co="" data-pre="EE043,EE042">INSTALAÇÕES ELÉTRICAS INDUSTRIAIS</div>
-          <div class="disciplina align-middle" id="EE057" data-co="EE056" data-pre="">LABORATÓRIO DE INSTALAÇÕES ELÉTRICAS INDUSTRIAIS</div>
-          <div class="disciplina align-middle" id="EE058" data-co="" data-pre="">ÊNFASE CURRICULAR</div>
-          <div class="disciplina align-middle" id="EE059" data-co="" data-pre="">ÊNFASE CURRICULAR</div>
-          <div class="disciplina align-middle" id="EE060" data-co="" data-pre="">ÊNFASE CURRICULAR</div>     
+          <div class="disciplina align-middle" id="EE054" data-co="" data-pre="EE047" data-dep="">MÁQUINAS ELÉTRICAS</div>
+          <div class="disciplina align-middle" id="EE055" data-co="EE054" data-pre="" data-dep="">LABORATÓRIO DE MÁQUINAS ELÉTRICAS</div>
+          <div class="disciplina align-middle" id="EE056" data-co="" data-pre="EE043,EE042" data-dep="">INSTALAÇÕES ELÉTRICAS INDUSTRIAIS</div>
+          <div class="disciplina align-middle" id="EE057" data-co="EE056" data-pre="" data-dep="">LABORATÓRIO DE INSTALAÇÕES ELÉTRICAS INDUSTRIAIS</div>
+          <div class="disciplina align-middle" id="EE058" data-co="" data-pre="" data-dep="">ÊNFASE CURRICULAR</div>
+          <div class="disciplina align-middle" id="EE059" data-co="" data-pre="" data-dep="">ÊNFASE CURRICULAR</div>
+          <div class="disciplina align-middle" id="EE060" data-co="" data-pre="" data-dep="">ÊNFASE CURRICULAR</div>     
 
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">9º Período</div>
-          <div class="disciplina align-middle" id="EE061" data-co="" data-pre="EE048,EE051">QUALIDADE E REGULAÇÃO DE ENERGIA ELÉTRICA</div>
-          <div class="disciplina align-middle" id="EE062" data-co="" data-pre="EE050">ENERGIA EÓLICA</div>
-          <div class="disciplina align-middle" id="EE063" data-co="" data-pre="EE050">ENERGIA SOLAR</div>
-          <div class="disciplina align-middle" id="EE064" data-co="" data-pre="">ÊNFASE CURRICULAR</div>
-          <div class="disciplina align-middle" id="EE065" data-co="" data-pre="">ÊNFASE CURRICULAR</div>
-          <div class="disciplina align-middle" id="EE066" data-co="" data-pre="">ÊNFASE CURRICULAR</div>
+          <div class="disciplina align-middle" id="EE061" data-co="" data-pre="EE048,EE051" data-dep="">QUALIDADE E REGULAÇÃO DE ENERGIA ELÉTRICA</div>
+          <div class="disciplina align-middle" id="EE062" data-co="" data-pre="EE050" data-dep="">ENERGIA EÓLICA</div>
+          <div class="disciplina align-middle" id="EE063" data-co="" data-pre="EE050" data-dep="">ENERGIA SOLAR</div>
+          <div class="disciplina align-middle" id="EE064" data-co="" data-pre="" data-dep="">ÊNFASE CURRICULAR</div>
+          <div class="disciplina align-middle" id="EE065" data-co="" data-pre="" data-dep="">ÊNFASE CURRICULAR</div>
+          <div class="disciplina align-middle" id="EE066" data-co="" data-pre="" data-dep="">ÊNFASE CURRICULAR</div>
           
            
         </div>
       <div class="col col-periodo">
             <div class="head-periodo">10º Período</div>
-          <div class="disciplina align-middle" id="EE067" data-co="" data-pre="">OPTATIVA</div>
-          <div class="disciplina align-middle" id="EE068" data-co="" data-pre="">OPTATIVA</div>
-          <div class="disciplina align-middle" id="EE069" data-co="" data-pre="">TCC</div>
-          <div class="disciplina align-middle" id="EE070" data-co="" data-pre="">ESTÁGIO</div>
-          <div class="disciplina align-middle" id="EE071" data-co="" data-pre="">ATIVIDADES COMPLEMENTARES</div>
+          <div class="disciplina align-middle" id="EE067" data-co="" data-pre="" data-dep="">OPTATIVA</div>
+          <div class="disciplina align-middle" id="EE068" data-co="" data-pre="" data-dep="">OPTATIVA</div>
+          <div class="disciplina align-middle" id="EE069" data-co="" data-pre="" data-dep="">TCC</div>
+          <div class="disciplina align-middle" id="EE070" data-co="" data-pre="" data-dep="">ESTÁGIO</div>
+          <div class="disciplina align-middle" id="EE071" data-co="" data-pre="" data-dep="">ATIVIDADES COMPLEMENTARES</div>
            
 
         </div>

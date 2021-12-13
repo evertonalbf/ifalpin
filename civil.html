@@ -169,6 +169,7 @@
           var idDisciplina = $(this).attr("id");
           var idPre        = $(this).attr("data-pre");
           var idCo         = $(this).attr("data-co");
+          var idDep        = $(this).attr("data-dep");
           if( idPre ){
             var exp = idPre.split(",");
             var arr = jQuery.makeArray(exp);
@@ -186,7 +187,16 @@
               var co = arr2[j];
               $("#"+co).addClass("pre-requisito");
             }     
-          } 
+          }
+          if( idDep ){
+            var exp3 = idDep.split(",");
+            var arr3 = jQuery.makeArray(exp3);
+            var total3 = arr3.length;  
+            for(var k = 0; k < total3; k++){
+              var dep = arr3[k];
+              $("#"+dep).addClass("pre-requisito");
+            }     
+          }
         }, function() {
            $(".disciplina").removeClass("pre-requisito");
         }
@@ -218,101 +228,101 @@
   <div class="row">
     <div class="col col-periodo">
                 <div class="head-periodo">1º Período</div>
-                <div class="disciplina align-middle" id="EC001" data-co="" data-pre="">INTRODUÇÃO AO CÁLCULO DIFERENCIAL E INTEGRAL</div>
-                <div class="disciplina align-middle" id="EC002" data-co="" data-pre="">INTRODUÇÃO A COMPUTAÇÃO</div>
-                <div class="disciplina align-middle" id="EC003" data-co="" data-pre="">QUÍMICA GERAL</div>
-                <div class="disciplina align-middle" id="EC004" data-co="" data-pre="">QUÍMICA GERAL EXPERIMENTAL</div>
-                <div class="disciplina align-middle" id="EC005" data-co="" data-pre="">GEOMETRIA ANALÍTICA</div>
-                <div class="disciplina align-middle" id="EC006" data-co="" data-pre="">INTRODUÇÃO A ENGENHARIA CIVIL</div>
-                <div class="disciplina align-middle" id="EC007" data-co="" data-pre="">GEOMETRIA DESCRITIVA</div>
-                <div class="disciplina align-middle" id="EC008" data-co="" data-pre="">COMUNICAÇÃO E EXPRESSÃO</div>
+                <div class="disciplina align-middle" id="EC001" data-co="" data-pre="" data-dep="EC009,EC010,EC011">INTRODUÇÃO AO CÁLCULO DIFERENCIAL E INTEGRAL</div>
+                <div class="disciplina align-middle" id="EC002" data-co="" data-pre="" data-dep="EC020">INTRODUÇÃO A COMPUTAÇÃO</div>
+                <div class="disciplina align-middle" id="EC003" data-co="" data-pre="" data-dep="">QUÍMICA GERAL</div>
+                <div class="disciplina align-middle" id="EC004" data-co="" data-pre="" data-dep="">QUÍMICA GERAL EXPERIMENTAL</div>
+                <div class="disciplina align-middle" id="EC005" data-co="" data-pre="" data-dep="EC010,EC011,EC012,EC013">GEOMETRIA ANALÍTICA</div>
+                <div class="disciplina align-middle" id="EC006" data-co="" data-pre="" data-dep="EC019">INTRODUÇÃO A ENGENHARIA CIVIL</div>
+                <div class="disciplina align-middle" id="EC007" data-co="" data-pre="" data-dep="EC013,EC014">GEOMETRIA DESCRITIVA</div>
+                <div class="disciplina align-middle" id="EC008" data-co="" data-pre="" data-dep="">COMUNICAÇÃO E EXPRESSÃO</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">2º Período</div>
-                <div class="disciplina align-middle" id="EC009" data-co="" data-pre="EC001">CÁLCULO DIFERENCIAL E INTEGRAL I</div>
-                <div class="disciplina align-middle" id="EC010" data-co="" data-pre="EC001,EC005">FÍSICA GERAL I</div>
-                <div class="disciplina align-middle" id="EC011" data-co="" data-pre="EC001,EC005">FÍSICA EXPERIMENTAL I</div>
-                <div class="disciplina align-middle" id="EC012" data-co="" data-pre="EC005">ÁLGEBRA LINEAR I</div>
-                <div class="disciplina align-middle" id="EC013" data-co="" data-pre="EC005,EC007">TOPOGRAFIA</div>
-                <div class="disciplina align-middle" id="EC014" data-co="" data-pre="EC007">DESENHO TÉCNICO</div>
-                <div class="disciplina align-middle" id="EC015" data-co="" data-pre="">METODOLOGIA CIENTÍFICA</div>
+                <div class="disciplina align-middle" id="EC009" data-co="" data-pre="EC001" data-dep="EC016,EC018,EC020">CÁLCULO DIFERENCIAL E INTEGRAL I</div>
+                <div class="disciplina align-middle" id="EC010" data-co="" data-pre="EC001,EC005" data-dep="EC017">FÍSICA GERAL I</div>
+                <div class="disciplina align-middle" id="EC011" data-co="" data-pre="EC001,EC005" data-dep="">FÍSICA EXPERIMENTAL I</div>
+                <div class="disciplina align-middle" id="EC012" data-co="" data-pre="EC005" data-dep="">ÁLGEBRA LINEAR I</div>
+                <div class="disciplina align-middle" id="EC013" data-co="" data-pre="EC005,EC007" data-dep="EC026,EC037,EC055">TOPOGRAFIA</div>
+                <div class="disciplina align-middle" id="EC014" data-co="" data-pre="EC007" data-dep="EC021">DESENHO TÉCNICO</div>
+                <div class="disciplina align-middle" id="EC015" data-co="" data-pre="" data-dep="">METODOLOGIA CIENTÍFICA</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">3º Período</div>
-                <div class="disciplina align-middle" id="EC016" data-co="" data-pre="EC005,EC009">CÁLCULO DIFERENCIAL E INTEGRAL II</div>
-                <div class="disciplina align-middle" id="EC017" data-co="" data-pre="EC010">FÍSICA GERAL II</div>
-                <div class="disciplina align-middle" id="EC018" data-co="" data-pre="EC009">ESTATÍSTICA E PROBABILIDADE</div>
-                <div class="disciplina align-middle" id="EC019" data-co="" data-pre="EC006">MATERIAIS DE CONSTRUÇÃO CIVIL I</div>
-                <div class="disciplina align-middle" id="EC020" data-co="" data-pre="EC002,EC009">CÁLCULO NUMÉRICO</div>
-                <div class="disciplina align-middle" id="EC021" data-co="" data-pre="EC014">DESENHO ASSISTIDO POR COMPUTADOR</div>
+                <div class="disciplina align-middle" id="EC016" data-co="" data-pre="EC005,EC009" data-dep="EC022,EC024,EC029">CÁLCULO DIFERENCIAL E INTEGRAL II</div>
+                <div class="disciplina align-middle" id="EC017" data-co="" data-pre="EC010" data-dep="EC023,EC024,EC029">FÍSICA GERAL II</div>
+                <div class="disciplina align-middle" id="EC018" data-co="" data-pre="EC009" data-dep="EC028">ESTATÍSTICA E PROBABILIDADE</div>
+                <div class="disciplina align-middle" id="EC019" data-co="" data-pre="EC006" data-dep="EC025">MATERIAIS DE CONSTRUÇÃO CIVIL I</div>
+                <div class="disciplina align-middle" id="EC020" data-co="" data-pre="EC002,EC009" data-dep="">CÁLCULO NUMÉRICO</div>
+                <div class="disciplina align-middle" id="EC021" data-co="" data-pre="EC014" data-dep="EC027">DESENHO ASSISTIDO POR COMPUTADOR</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">4º Período</div>
-                <div class="disciplina align-middle" id="EC022" data-co="" data-pre="EC016">CÁLCULO DIFERENCIAL E INTEGRAL III</div>
-                <div class="disciplina align-middle" id="EC023" data-co="" data-pre="EC017">FÍSICA GERAL III</div>
-                <div class="disciplina align-middle" id="EC024" data-co="" data-pre="EC016,EC017">MECÂNICA DOS SÓLIDOS I</div>
-                <div class="disciplina align-middle" id="EC025" data-co="" data-pre="EC019">MATERIAIS DE CONSTRUÇÃO CIVIL II</div>
-                <div class="disciplina align-middle" id="EC026" data-co="" data-pre="EC013">GEOLOGIA APLICADA</div>
-                <div class="disciplina align-middle" id="EC027" data-co="" data-pre="EC021">DESENHO ARQUITETÔNICO</div>
-                <div class="disciplina align-middle" id="EC028" data-co="" data-pre="EC018">ENGENHARIA ECONÔMICA</div>
+                <div class="disciplina align-middle" id="EC022" data-co="" data-pre="EC016" data-dep="">CÁLCULO DIFERENCIAL E INTEGRAL III</div>
+                <div class="disciplina align-middle" id="EC023" data-co="" data-pre="EC017" data-dep="EC047">FÍSICA GERAL III</div>
+                <div class="disciplina align-middle" id="EC024" data-co="" data-pre="EC016,EC017" data-dep="EC031,EC035">MECÂNICA DOS SÓLIDOS I</div>
+                <div class="disciplina align-middle" id="EC025" data-co="" data-pre="EC019" data-dep="EC032,EC063">MATERIAIS DE CONSTRUÇÃO CIVIL II</div>
+                <div class="disciplina align-middle" id="EC026" data-co="" data-pre="EC013" data-dep="EC030,EC033,EC043">GEOLOGIA APLICADA</div>
+                <div class="disciplina align-middle" id="EC027" data-co="" data-pre="EC021" data-dep="">DESENHO ARQUITETÔNICO</div>
+                <div class="disciplina align-middle" id="EC028" data-co="" data-pre="EC018" data-dep="EC050">ENGENHARIA ECONÔMICA</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">5º Período</div>
-                <div class="disciplina align-middle" id="EC029" data-co="" data-pre="EC016,EC017">FENÔMENOS DE TRANSPORTE</div>
-                <div class="disciplina align-middle" id="EC030" data-co="" data-pre="EC026">MECÂNICA DOS SOLOS I</div>
-                <div class="disciplina align-middle" id="EC031" data-co="" data-pre="EC024">MECÂNICA DOS SÓLIDOS II</div>
-                <div class="disciplina align-middle" id="EC032" data-co="" data-pre="EC025">TECNOLOGIA DE CONSTRUÇÃO CIVIL I</div>
-                <div class="disciplina align-middle" id="EC033" data-co="" data-pre="EC026">LABORATÓRIO DE MECÂNICA DOS SOLOS I</div>
-                <div class="disciplina align-middle" id="EC034" data-co="" data-pre="">SOCIOLOGIA DO TRABALHO</div>
-                <div class="disciplina align-middle" id="EC035" data-co="" data-pre="EC024">TEORIA DAS ESTRUTURAS I</div>
+                <div class="disciplina align-middle" id="EC029" data-co="" data-pre="EC016,EC017" data-dep="EC036">FENÔMENOS DE TRANSPORTE</div>
+                <div class="disciplina align-middle" id="EC030" data-co="" data-pre="EC026" data-dep="EC037,EC040,EC042">MECÂNICA DOS SOLOS I</div>
+                <div class="disciplina align-middle" id="EC031" data-co="" data-pre="EC024" data-dep="EC038">MECÂNICA DOS SÓLIDOS II</div>
+                <div class="disciplina align-middle" id="EC032" data-co="" data-pre="EC025" data-dep="EC039,EC062">TECNOLOGIA DE CONSTRUÇÃO CIVIL I</div>
+                <div class="disciplina align-middle" id="EC033" data-co="" data-pre="EC026" data-dep="">LABORATÓRIO DE MECÂNICA DOS SOLOS I</div>
+                <div class="disciplina align-middle" id="EC034" data-co="" data-pre="" data-dep="">SOCIOLOGIA DO TRABALHO</div>
+                <div class="disciplina align-middle" id="EC035" data-co="" data-pre="EC024" data-dep="EC041">TEORIA DAS ESTRUTURAS I</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">6º Período</div>
-                <div class="disciplina align-middle" id="EC036" data-co="" data-pre="EC029">HIDRÁULICA</div>
-                <div class="disciplina align-middle" id="EC037" data-co="" data-pre="EC030,EC013">ESTRADAS</div>
-                <div class="disciplina align-middle" id="EC038" data-co="" data-pre="EC031">MECÂNICA DOS SÓLIDOS III</div>
-                <div class="disciplina align-middle" id="EC039" data-co="" data-pre="EC032">TECNOLOGIA DE CONSTRUÇÃO CIVIL II</div>
-                <div class="disciplina align-middle" id="EC040" data-co="" data-pre="EC030">MECÂNICA DOS SOLOS II</div>
-                <div class="disciplina align-middle" id="EC041" data-co="" data-pre="EC035">TEORIA DAS ESTRUTURAS II</div>
-                <div class="disciplina align-middle" id="EC042" data-co="" data-pre="EC030">LABORATÓRIO DE MECÂNICA DOS SOLOS II</div>
+                <div class="disciplina align-middle" id="EC036" data-co="" data-pre="EC029" data-dep="EC049,EC052,EC056">HIDRÁULICA</div>
+                <div class="disciplina align-middle" id="EC037" data-co="" data-pre="EC030,EC013" data-dep="EC048">ESTRADAS</div>
+                <div class="disciplina align-middle" id="EC038" data-co="" data-pre="EC031" data-dep="EC046">MECÂNICA DOS SÓLIDOS III</div>
+                <div class="disciplina align-middle" id="EC039" data-co="" data-pre="EC032" data-dep="EC045,EC057">TECNOLOGIA DE CONSTRUÇÃO CIVIL II</div>
+                <div class="disciplina align-middle" id="EC040" data-co="" data-pre="EC030" data-dep="EC044,EC048">MECÂNICA DOS SOLOS II</div>
+                <div class="disciplina align-middle" id="EC041" data-co="" data-pre="EC035" data-dep="EC046,EC063,EC065">TEORIA DAS ESTRUTURAS II</div>
+                <div class="disciplina align-middle" id="EC042" data-co="" data-pre="EC030" data-dep="">LABORATÓRIO DE MECÂNICA DOS SOLOS II</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">7º Período</div>
-                <div class="disciplina align-middle" id="EC043" data-co="" data-pre="EC026">HIDROLOGIA</div>
-                <div class="disciplina align-middle" id="EC044" data-co="" data-pre="EC040">FUNDAÇÕES I</div>
-                <div class="disciplina align-middle" id="EC045" data-co="" data-pre="EC039">TECNOLOGIA DE CONSTRUÇÃO CIVIL III</div>
-                <div class="disciplina align-middle" id="EC046" data-co="" data-pre="EC038,EC041">ESTRUTURAS DE CONCRETO ARMADO I</div>
-                <div class="disciplina align-middle" id="EC047" data-co="" data-pre="EC023">ELETRICIDADE APLICADA</div>
-                <div class="disciplina align-middle" id="EC048" data-co="" data-pre="EC037,EC040">PAVIMENTAÇÃO</div>
-                <div class="disciplina align-middle" id="EC049" data-co="" data-pre="EC036">HIDRÁULICA EXPERIMENTAL</div>
-                <div class="disciplina align-middle" id="EC050" data-co="" data-pre="EC028">ADMINISTRAÇÃO APLICADA À CONSTRUÇÃO CIVIL</div>
+                <div class="disciplina align-middle" id="EC043" data-co="" data-pre="EC026" data-dep="EC055,EC068">HIDROLOGIA</div>
+                <div class="disciplina align-middle" id="EC044" data-co="" data-pre="EC040" data-dep="EC051">FUNDAÇÕES I</div>
+                <div class="disciplina align-middle" id="EC045" data-co="" data-pre="EC039" data-dep="">TECNOLOGIA DE CONSTRUÇÃO CIVIL III</div>
+                <div class="disciplina align-middle" id="EC046" data-co="" data-pre="EC038,EC041" data-dep="EC053">ESTRUTURAS DE CONCRETO ARMADO I</div>
+                <div class="disciplina align-middle" id="EC047" data-co="" data-pre="EC023" data-dep="EC054">ELETRICIDADE APLICADA</div>
+                <div class="disciplina align-middle" id="EC048" data-co="" data-pre="EC037,EC040" data-dep="EC055">PAVIMENTAÇÃO</div>
+                <div class="disciplina align-middle" id="EC049" data-co="" data-pre="EC036" data-dep="">HIDRÁULICA EXPERIMENTAL</div>
+                <div class="disciplina align-middle" id="EC050" data-co="" data-pre="EC028" data-dep="">ADMINISTRAÇÃO APLICADA À CONSTRUÇÃO CIVIL</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">8º Período</div>
-                <div class="disciplina align-middle" id="EC051" data-co="" data-pre="EC044">FUNDAÇÕES II</div>
-                <div class="disciplina align-middle" id="EC052" data-co="" data-pre="EC036">INSTALAÇÕES HIDRO-SANITÁRIAS</div>
-                <div class="disciplina align-middle" id="EC053" data-co="" data-pre="EC046">ESTRUTURAS DE CONCRETO ARMADO II</div>
-                <div class="disciplina align-middle" id="EC054" data-co="" data-pre="EC047">INSTALAÇÕES ELÉTRICAS PREDIAIS</div>
-                <div class="disciplina align-middle" id="EC055" data-co="" data-pre="EC013,EC043,EC048">SISTEMA DE DRENAGEM URBANA</div>
-                <div class="disciplina align-middle" id="EC056" data-co="" data-pre="EC036">SISTEMAS DE ABASTECIMENTO DE ÁGUA</div>
-                <div class="disciplina align-middle" id="EC057" data-co="" data-pre="EC039">TRANSPORTES I</div>
+                <div class="disciplina align-middle" id="EC051" data-co="" data-pre="EC044" data-dep="">FUNDAÇÕES II</div>
+                <div class="disciplina align-middle" id="EC052" data-co="" data-pre="EC036" data-dep="">INSTALAÇÕES HIDRO-SANITÁRIAS</div>
+                <div class="disciplina align-middle" id="EC053" data-co="" data-pre="EC046" data-dep="EC066">ESTRUTURAS DE CONCRETO ARMADO II</div>
+                <div class="disciplina align-middle" id="EC054" data-co="" data-pre="EC047" data-dep="">INSTALAÇÕES ELÉTRICAS PREDIAIS</div>
+                <div class="disciplina align-middle" id="EC055" data-co="" data-pre="EC013,EC043,EC048" data-dep="EC061">SISTEMA DE DRENAGEM URBANA</div>
+                <div class="disciplina align-middle" id="EC056" data-co="" data-pre="EC036" data-dep="EC061">SISTEMAS DE ABASTECIMENTO DE ÁGUA</div>
+                <div class="disciplina align-middle" id="EC057" data-co="" data-pre="EC039" data-dep="EC060">TRANSPORTES I</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">9º Período</div>
-                <div class="disciplina align-middle" id="EC060" data-co="" data-pre="EC057">TRANSPORTES II</div>
-                <div class="disciplina align-middle" id="EC061" data-co="" data-pre="EC055,EC056">SISTEMA DE ESGOTAMENTO SANITÁRIO</div>
-                <div class="disciplina align-middle" id="EC062" data-co="" data-pre="EC032">SEGURANÇA DO TRABALHO</div>
-                <div class="disciplina align-middle" id="EC063" data-co="" data-pre="EC025,EC041">ESTRUTURAS METÁLICAS</div>
-                <div class="disciplina align-middle" id="EC064" data-co="" data-pre="">DIREITO E LEGISLAÇÃO</div>
-                <div class="disciplina align-middle" id="EC065" data-co="" data-pre="EC041">ESTRUTURAS DE MADEIRA</div>
-                <div class="disciplina align-middle" id="EC066" data-co="" data-pre="EC053">ESTRUTURAS DE CONCRETO PROTENDIDO</div>
-                <div class="disciplina align-middle" id="EC067" data-co="" data-pre="">EMPREENDEDORISMO E INOVAÇÃO</div>
+                <div class="disciplina align-middle" id="EC060" data-co="" data-pre="EC057" data-dep="">TRANSPORTES II</div>
+                <div class="disciplina align-middle" id="EC061" data-co="" data-pre="EC055,EC056" data-dep="EC068">SISTEMA DE ESGOTAMENTO SANITÁRIO</div>
+                <div class="disciplina align-middle" id="EC062" data-co="" data-pre="EC032" data-dep="">SEGURANÇA DO TRABALHO</div>
+                <div class="disciplina align-middle" id="EC063" data-co="" data-pre="EC025,EC041" data-dep="">ESTRUTURAS METÁLICAS</div>
+                <div class="disciplina align-middle" id="EC064" data-co="" data-pre="" data-dep="">DIREITO E LEGISLAÇÃO</div>
+                <div class="disciplina align-middle" id="EC065" data-co="" data-pre="EC041" data-dep="">ESTRUTURAS DE MADEIRA</div>
+                <div class="disciplina align-middle" id="EC066" data-co="" data-pre="EC053" data-dep="">ESTRUTURAS DE CONCRETO PROTENDIDO</div>
+                <div class="disciplina align-middle" id="EC067" data-co="" data-pre="" data-dep="">EMPREENDEDORISMO E INOVAÇÃO</div>
         </div>
       <div class="col col-periodo">
                 <div class="head-periodo">10º Período</div>
-                <div class="disciplina align-middle" id="EC068" data-co="" data-pre="EC043,EC061">ENGENHARIA AMBIENTAL</div>
-                <div class="disciplina align-middle" id="EC069" data-co="" data-pre="">ÉTICA E EXERCÍCIO PROFISSIONAL</div>
-                <div class="disciplina align-middle" id="EC086" data-co="" data-pre="">TRABALHO DE CONCLUSÃO DE CURSO</div>
+                <div class="disciplina align-middle" id="EC068" data-co="" data-pre="EC043,EC061" data-dep="">ENGENHARIA AMBIENTAL</div>
+                <div class="disciplina align-middle" id="EC069" data-co="" data-pre="" data-dep="">ÉTICA E EXERCÍCIO PROFISSIONAL</div>
+                <div class="disciplina align-middle" id="EC086" data-co="" data-pre="" data-dep="">TRABALHO DE CONCLUSÃO DE CURSO</div>
         </div>
 
         
